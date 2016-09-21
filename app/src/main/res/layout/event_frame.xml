@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/event_margin_like"
+    android:paddingLeft="@dimen/event_margin"
+    android:paddingRight="@dimen/event_margin"
+    android:paddingTop="@dimen/event_margin">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="#eef0e5"
+        android:paddingBottom="@dimen/event_margin_like"
+        android:paddingLeft="@dimen/event_margin"
+        android:paddingRight="@dimen/event_margin"
+        android:paddingTop="@dimen/event_margin">
+
+        <TextView
+            android:id="@+id/eventTitleId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/eventMsgId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/eventTitleId"
+            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ImageView
+            android:id="@+id/eventPhotoId"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/eventMsgId"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/eventMapId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/eventPhotoId"
+            android:drawableLeft="@drawable/ic_map"
+            android:gravity="center"
+            android:text="\tMap"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/eventPhotosId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventPhotoId"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@+id/eventMapId"
+            android:drawableLeft="@drawable/ic_photos"
+            android:gravity="center"
+            android:text="\tPhoto/Video"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/eventLikeId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/eventMapId"
+            android:layout_marginTop="@dimen/event_margin_like"
+            android:drawableLeft="@drawable/ic_like"
+            android:gravity="center"
+            android:text="\tLike"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/eventCommentId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventMapId"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="@dimen/event_margin_like"
+            android:layout_toRightOf="@+id/eventLikeId"
+            android:drawableLeft="@drawable/ic_comment"
+            android:gravity="center"
+            android:text="\tComment"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+        <TextView
+            android:id="@+id/eventSendEmailId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventMapId"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="@dimen/event_margin_like"
+            android:layout_toRightOf="@+id/eventCommentId"
+            android:drawableLeft="@drawable/ic_send_email"
+            android:gravity="center"
+            android:text="\tSend Email"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+    </RelativeLayout>
+</RelativeLayout>

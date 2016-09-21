@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:background="#25272a"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/homeTab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:onClick="onClick"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_home" />
+
+        <LinearLayout
+            android:id="@+id/homeTabSelector"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="bottom"
+            android:background="#115587"
+            android:orientation="vertical"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/searchTab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:onClick="onClick"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_search" />
+
+        <LinearLayout
+            android:id="@+id/searchTabSelector"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="bottom"
+            android:background="#115587"
+            android:orientation="vertical"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/cameraTab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:onClick="onClick"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_camera" />
+
+        <LinearLayout
+            android:id="@+id/cameraTabSelector"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="bottom"
+            android:background="#115587"
+            android:orientation="vertical"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/heartTab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:onClick="onClick"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_heart" />
+
+        <LinearLayout
+            android:id="@+id/heartTabSelector"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="bottom"
+            android:background="#115587"
+            android:orientation="vertical"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/profileTab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:onClick="onClick"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_profile" />
+
+        <LinearLayout
+            android:id="@+id/profileTabSelector"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="bottom"
+            android:background="#115587"
+            android:orientation="vertical"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

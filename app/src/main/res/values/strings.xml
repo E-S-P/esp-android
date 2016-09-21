@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ESP</string>
+    <string name="login_hint">User Name / Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="title_activity_main">Main</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home_blank_fragment">Home blank fragment</string>
+    <string name="search_blank_fragment">Search blank fragment</string>
+    <string name="camera_blank_fragment">Camera blank fragment</string>
+    <string name="heart_blank_fragment">Heart blank fragment</string>
+    <string name="profile_blank_fragment">Profile blank fragment</string>
 </resources>
