@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="#eef0e5"
         android:paddingBottom="@dimen/event_margin_like"
         android:paddingLeft="@dimen/event_margin"
         android:paddingRight="@dimen/event_margin"
