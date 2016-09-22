@@ -3,6 +3,9 @@ package com.esp.ui;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.esp.util.CustomToast;
 
 public class Registration extends AppCompatActivity {
 
@@ -16,6 +19,7 @@ public class Registration extends AppCompatActivity {
 
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -24,5 +28,16 @@ public class Registration extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.registerBtnId:
+                CustomToast.toastLong(Registration.this, "Registration coming soon!");
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -6,9 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 
 public class Splash extends AppCompatActivity implements Animation.AnimationListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +17,7 @@ public class Splash extends AppCompatActivity implements Animation.AnimationList
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_splash);
 
-        RelativeLayout splash = (RelativeLayout) findViewById(R.id.splash);
+        LinearLayout splash = (LinearLayout) findViewById(R.id.splash);
         Animation in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_fade_in);
         in.setAnimationListener(this);
         splash.setAnimation(in);
