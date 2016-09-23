@@ -47,7 +47,7 @@
             android:layout_centerHorizontal="true"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/sample" />
 
         <TextView
             android:id="@+id/eventMapId"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,40 +8,47 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.esp.ui.Login">
+    tools:context="com.esp.ui.Login"
+    android:background="@color/colorPrimary">
 
     <EditText
         android:id="@+id/loginField"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/field_height"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
         android:ems="10"
         android:hint="@string/login_hint"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:background="@android:color/white"
+        android:paddingLeft="10dp"/>
 
     <EditText
         android:id="@+id/passwordField"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/field_height"
         android:layout_below="@+id/loginField"
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/password_hint"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:background="@android:color/white"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="10dp"/>
 
 
-    <Button
+    <TextView
         android:id="@+id/loginBtn"
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/field_height"
         android:layout_below="@+id/passwordField"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:onClick="onClick"
-        android:text="@string/login" />
+        android:text="@string/login"
+        android:gravity="center_horizontal|center_vertical"
+        android:background="@color/white"/>
 
     <TextView
         android:id="@+id/forgotPasswordBtn"
@@ -52,16 +60,26 @@
         android:onClick="onClick"
         android:text="Forgot Password"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/white" />
 
-    <Button
+    <TextView
         android:id="@+id/signUpBtn"
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/field_height"
         android:layout_below="@+id/forgotPasswordBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:onClick="onClick"
-        android:text="@string/register" />
+        android:text="@string/register"
+        android:gravity="center_horizontal|center_vertical"
+        android:background="@color/white"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_top_bar_logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:id="@+id/imageView2" />
 </RelativeLayout>

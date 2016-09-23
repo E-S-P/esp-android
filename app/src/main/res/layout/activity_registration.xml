@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.esp.ui.Registration">
+    tools:context="com.esp.ui.Registration"
+    android:background="@color/colorPrimary">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +30,9 @@
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="First Name"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:background="@android:color/white"
+                android:paddingLeft="10dp"/>
 
             <EditText
                 android:id="@+id/editText2"
@@ -40,7 +43,10 @@
                 android:layout_below="@+id/editText"
                 android:ems="10"
                 android:hint="Last Name"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:background="@android:color/white"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="10dp"/>
 
             <EditText
                 android:id="@+id/editText3"
@@ -51,7 +57,10 @@
                 android:layout_below="@+id/editText2"
                 android:ems="10"
                 android:hint="Email"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:background="@android:color/white"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="10dp"/>
 
             <EditText
                 android:id="@+id/editText4"
@@ -62,14 +71,18 @@
                 android:layout_below="@+id/editText3"
                 android:ems="10"
                 android:hint="Password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:background="@android:color/white"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="10dp"/>
 
             <LinearLayout
                 android:id="@+id/layoutDOBGenderId"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/field_height"
                 android:layout_below="@+id/editText4"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
 
                 <TextView
                     android:id="@+id/textView2"
@@ -78,7 +91,9 @@
                     android:layout_weight="1"
                     android:gravity="left|center_vertical"
                     android:hint="DOB"
-                    android:paddingLeft="5dp" />
+                    android:paddingLeft="10dp"
+                    android:background="@android:color/white"
+                    android:layout_marginRight="2dp"/>
 
                 <TextView
                     android:id="@+id/textView3"
@@ -87,7 +102,9 @@
                     android:layout_weight="1"
                     android:gravity="left|center_vertical"
                     android:hint="Gender"
-                    android:paddingLeft="5dp" />
+                    android:paddingLeft="10dp"
+                    android:background="@android:color/white"
+                    android:layout_marginLeft="2dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -106,7 +123,10 @@
                 android:layout_below="@+id/lineDOBGenderId"
                 android:ems="10"
                 android:hint="Phone"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:background="@android:color/white"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="10dp"/>
 
             <EditText
                 android:id="@+id/editText6"
@@ -115,14 +135,18 @@
                 android:layout_below="@+id/editText5"
                 android:ems="10"
                 android:hint="Address"
-                android:inputType="text" />
+                android:inputType="text"
+                android:background="@android:color/white"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="10dp"/>
 
             <LinearLayout
                 android:id="@+id/layoutCityStateId"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/field_height"
                 android:layout_below="@+id/editText6"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
 
                 <EditText
                     android:id="@+id/editText7"
@@ -131,7 +155,10 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="City"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:background="@android:color/white"
+                    android:layout_marginRight="2dp"
+                    android:paddingLeft="10dp"/>
 
                 <EditText
                     android:id="@+id/editText8"
@@ -140,7 +167,10 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="State"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:background="@android:color/white"
+                    android:layout_marginLeft="2dp"
+                    android:paddingLeft="10dp"/>
             </LinearLayout>
 
 
@@ -151,7 +181,10 @@
                 android:layout_below="@+id/layoutCityStateId"
                 android:ems="10"
                 android:hint="Zip"
-                android:inputType="number" />
+                android:inputType="number"
+                android:background="@android:color/white"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="10dp"/>
 
             <EditText
                 android:id="@+id/editText10"
@@ -160,17 +193,22 @@
                 android:layout_below="@+id/editText9"
                 android:ems="10"
                 android:hint="Country"
-                android:inputType="text" />
+                android:inputType="text"
+                android:background="@android:color/white"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="10dp"/>
 
-            <Button
+            <TextView
                 android:id="@+id/registerBtnId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/field_height"
                 android:layout_below="@+id/editText10"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:onClick="onClick"
-                android:text="Register" />
+                android:text="Register"
+                android:background="@android:color/white"
+                android:gravity="center_horizontal|center_vertical"/>
 
 
         </RelativeLayout>

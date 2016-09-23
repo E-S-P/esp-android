@@ -64,14 +64,16 @@ public class Home extends BaseFragment {
 
         for (int i = 0; i < events.size(); i++){
 
-            View eventView = mActivity.getLayoutInflater().inflate(R.layout.event_frame, null);
+            View eventView = mActivity.getLayoutInflater().inflate(R.layout.event_item, null);
 
 
             TextView title = (TextView) eventView.findViewById(R.id.eventTitleId);
             title.setText(events.get(i).getTitle());
 
-            TextView msg = (TextView) eventView.findViewById(R.id.eventMsgId);
-            msg.setText(events.get(i).getMessage());
+//            TextView msg = (TextView) eventView.findViewById(R.id.eventMsgId);
+//            msg.setText(events.get(i).getMessage());
+
+            LinearLayout layoutComment = (LinearLayout) eventView.findViewById(R.id.layoutCommentId);
 
             eventLayout.addView(eventView);
         }

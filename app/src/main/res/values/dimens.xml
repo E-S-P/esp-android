@@ -4,8 +4,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
-    <dimen name="event_margin">5dp</dimen>
+    <dimen name="event_margin">10dp</dimen>
     <dimen name="event_margin_like">15dp</dimen>
-    <dimen name="field_height">42dp</dimen>
+    <dimen name="field_height">40dp</dimen>
 
 </resources>
