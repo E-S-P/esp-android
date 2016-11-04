@@ -22,7 +22,7 @@
 
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/fNameFieldId"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/field_height"
                 android:layout_alignParentTop="true"
@@ -35,12 +35,12 @@
                 android:paddingLeft="10dp"/>
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/lNameFieldId"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/field_height"
-                android:layout_alignLeft="@+id/editText"
-                android:layout_alignStart="@+id/editText"
-                android:layout_below="@+id/editText"
+                android:layout_alignLeft="@+id/fNameFieldId"
+                android:layout_alignStart="@+id/fNameFieldId"
+                android:layout_below="@+id/fNameFieldId"
                 android:ems="10"
                 android:hint="Last Name"
                 android:inputType="textPersonName"
@@ -49,12 +49,12 @@
                 android:paddingLeft="10dp"/>
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/emailFieldId"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/field_height"
-                android:layout_alignEnd="@+id/editText2"
-                android:layout_alignRight="@+id/editText2"
-                android:layout_below="@+id/editText2"
+                android:layout_alignEnd="@+id/lNameFieldId"
+                android:layout_alignRight="@+id/lNameFieldId"
+                android:layout_below="@+id/lNameFieldId"
                 android:ems="10"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
@@ -63,14 +63,29 @@
                 android:paddingLeft="10dp"/>
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/passwordFieldId"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/field_height"
-                android:layout_alignEnd="@+id/editText3"
-                android:layout_alignRight="@+id/editText3"
-                android:layout_below="@+id/editText3"
+                android:layout_alignEnd="@+id/emailFieldId"
+                android:layout_alignRight="@+id/emailFieldId"
+                android:layout_below="@+id/emailFieldId"
                 android:ems="10"
                 android:hint="Password"
+                android:inputType="textPassword"
+                android:background="@android:color/white"
+                android:layout_marginTop="4dp"
+                android:paddingLeft="10dp"/>
+
+
+            <EditText
+                android:id="@+id/confirmPasswordFieldId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/field_height"
+                android:layout_alignEnd="@+id/passwordFieldId"
+                android:layout_alignRight="@+id/passwordFieldId"
+                android:layout_below="@+id/passwordFieldId"
+                android:ems="10"
+                android:hint="Confirm Password"
                 android:inputType="textPassword"
                 android:background="@android:color/white"
                 android:layout_marginTop="4dp"
@@ -80,7 +95,7 @@
                 android:id="@+id/layoutDOBGenderId"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/field_height"
-                android:layout_below="@+id/editText4"
+                android:layout_below="@+id/confirmPasswordFieldId"
                 android:orientation="horizontal"
                 android:layout_marginTop="4dp">
 
