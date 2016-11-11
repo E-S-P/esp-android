@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_forgot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.esp.ui.Forgot">
+
+
+    <TextView
+        android:id="@+id/messageTextId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Let's fix this. Please enter..."
+        android:textColor="@color/black"
+        android:textSize="@dimen/title_bar_size"/>
+
+    <EditText
+        android:id="@+id/emailForgotField"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_below="@+id/messageTextId"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:gravity="left|center_vertical"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        android:background="@drawable/field_border"/>
+
+    <TextView
+        android:id="@+id/submitEmailBtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_below="@+id/emailForgotField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorAccent"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Send Email"
+        android:textColor="@color/white"
+        android:onClick="onClick"/>
+</RelativeLayout>

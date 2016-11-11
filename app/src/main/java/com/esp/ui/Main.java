@@ -6,12 +6,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.esp.constants.G;
-import com.esp.fragment.Camera;
-import com.esp.fragment.Heart;
-import com.esp.fragment.Home;
+import com.esp.fragment.CreateEvent;
+import com.esp.fragment.Message;
+import com.esp.fragment.NewsFeed;
 import com.esp.fragment.Profile;
 import com.esp.fragment.Search;
 
@@ -21,15 +24,21 @@ import java.util.Stack;
 public class Main extends AppCompatActivity {
 
     private LinearLayout homeSelector, searchSelector, cameraSelector, heartSelector, profileSelector;
-    private HashMap<String, Stack<Fragment>> mStacks;
+    public HashMap<String, Stack<Fragment>> mStacks;
     private String mCurrentList;
     private Fragment currentFragment;
+    private ImageView espLogo;
+    private TextView barTitle, shareEventBtn;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        espLogo = (ImageView) findViewById(R.id.espLogo);
+        barTitle = (TextView) findViewById(R.id.barTitle);
+        shareEventBtn = (TextView) findViewById(R.id.shareEventBtn);
 
         homeSelector = (LinearLayout) findViewById(R.id.homeTabSelector);
         searchSelector = (LinearLayout) findViewById(R.id.searchTabSelector);
@@ -43,17 +52,25 @@ public class Main extends AppCompatActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.homeTab:
+                espLogo.setVisibility(View.VISIBLE);
+                barTitle.setVisibility(View.GONE);
+                shareEventBtn.setVisibility(View.GONE);
                 homeSelector.setVisibility(View.VISIBLE);
                 searchSelector.setVisibility(View.GONE);
                 cameraSelector.setVisibility(View.GONE);
                 heartSelector.setVisibility(View.GONE);
                 profileSelector.setVisibility(View.GONE);
                 if (mCurrentList != G.HOME) {
-                    currentFragment = new Home();
+                    currentFragment = new NewsFeed();
                     selectList(G.HOME, currentFragment);
                 }
                 break;
             case R.id.searchTab:
+
+                espLogo.setVisibility(View.GONE);
+                barTitle.setVisibility(View.VISIBLE);
+                setTitle("Search Event");
+                shareEventBtn.setVisibility(View.GONE);
                 homeSelector.setVisibility(View.GONE);
                 searchSelector.setVisibility(View.VISIBLE);
                 cameraSelector.setVisibility(View.GONE);
@@ -64,29 +81,41 @@ public class Main extends AppCompatActivity {
                     selectList(G.SEARCH, currentFragment);
                 }
                 break;
-            case R.id.cameraTab:
+            case R.id.createEventTab:
+                espLogo.setVisibility(View.GONE);
+                barTitle.setVisibility(View.VISIBLE);
+                setTitle("Create Event");
+                shareEventBtn.setVisibility(View.VISIBLE);
                 homeSelector.setVisibility(View.GONE);
                 searchSelector.setVisibility(View.GONE);
                 cameraSelector.setVisibility(View.VISIBLE);
                 heartSelector.setVisibility(View.GONE);
                 profileSelector.setVisibility(View.GONE);
-                if (mCurrentList != G.CAMERA) {
-                    currentFragment = new Camera();
-                    selectList(G.CAMERA, currentFragment);
+                if (mCurrentList != G.CREATE_EVENT) {
+                    currentFragment = new CreateEvent();
+                    selectList(G.CREATE_EVENT, currentFragment);
                 }
                 break;
-            case R.id.heartTab:
+            case R.id.messageTab:
+                espLogo.setVisibility(View.GONE);
+                barTitle.setVisibility(View.VISIBLE);
+                setTitle("Message");
+                shareEventBtn.setVisibility(View.GONE);
                 homeSelector.setVisibility(View.GONE);
                 searchSelector.setVisibility(View.GONE);
                 cameraSelector.setVisibility(View.GONE);
                 heartSelector.setVisibility(View.VISIBLE);
                 profileSelector.setVisibility(View.GONE);
-                if (mCurrentList != G.HEART) {
-                    currentFragment = new Heart();
-                    selectList(G.HEART, currentFragment);
+                if (mCurrentList != G.MESSAGE) {
+                    currentFragment = new Message();
+                    selectList(G.MESSAGE, currentFragment);
                 }
                 break;
             case R.id.profileTab:
+                espLogo.setVisibility(View.GONE);
+                barTitle.setVisibility(View.VISIBLE);
+                setTitle("Profile");
+                shareEventBtn.setVisibility(View.GONE);
                 homeSelector.setVisibility(View.GONE);
                 searchSelector.setVisibility(View.GONE);
                 cameraSelector.setVisibility(View.GONE);
@@ -95,6 +124,12 @@ public class Main extends AppCompatActivity {
                 if (mCurrentList != G.PROFILE) {
                     currentFragment = new Profile();
                     selectList(G.PROFILE, currentFragment);
+                }
+                break;
+            case R.id.shareEventBtn:
+                CreateEvent createEvent = (CreateEvent)mStacks.get(G.CREATE_EVENT).peek();
+                if(createEvent != null){
+                    createEvent.share();
                 }
                 break;
             default:
@@ -106,16 +141,15 @@ public class Main extends AppCompatActivity {
         mStacks = new HashMap<String, Stack<Fragment>>();
         mStacks.put(G.HOME, new Stack<Fragment>());
         mStacks.put(G.SEARCH, new Stack<Fragment>());
-        mStacks.put(G.CAMERA, new Stack<Fragment>());
-        mStacks.put(G.HEART, new Stack<Fragment>());
+        mStacks.put(G.CREATE_EVENT, new Stack<Fragment>());
+        mStacks.put(G.MESSAGE, new Stack<Fragment>());
         mStacks.put(G.PROFILE, new Stack<Fragment>());
-
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
         mCurrentList = G.HOME;
 
-        currentFragment = new Home();
+        currentFragment = new NewsFeed();
 
         ft.replace(R.id.content_frame, currentFragment);
         ft.commit();
@@ -171,6 +205,11 @@ public class Main extends AppCompatActivity {
         ft.commit();
     }
 
+    public void setTitle(String title){
+        barTitle.setText(title);
+    }
 
-
+    public void showToast(String msg){
+        Toast.makeText(Main.this, msg, Toast.LENGTH_LONG).show();
+    }
 }

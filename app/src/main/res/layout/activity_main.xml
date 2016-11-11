@@ -22,15 +22,42 @@
             app:srcCompat="@drawable/ic_top_bar_logo"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:id="@+id/imageView"
+            android:id="@+id/espLogo"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"/>
+
+
+        <TextView
+            android:text="Create Event"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/barTitle"
+            android:textSize="@dimen/title_bar_size"
+            android:visibility="gone"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:text="Share"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/shareEventBtn"
+            android:visibility="gone"
+            android:onClick="onClick"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/topBarId">
+        android:layout_below="@+id/topBarId"
+        android:id="@+id/relativeLayout">
 
         <FrameLayout
             android:id="@+id/content_frame"
@@ -46,7 +73,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
-        android:background="@color/colorAccent">
+        android:background="#bbbbbb">
 
         <include layout="@layout/tab_bottom" />
     </LinearLayout>

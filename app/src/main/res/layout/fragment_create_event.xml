@@ -1,0 +1,132 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.esp.fragment.CreateEvent">
+
+
+    <EditText
+        android:id="@+id/eventMessageId"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/field_border"
+        android:ems="10"
+        android:gravity="left|top"
+        android:inputType="textMultiLine"
+        android:hint="Your message here.." />
+
+
+    <LinearLayout
+        android:id="@+id/layoutEventNameBtnId"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_below="@+id/eventMessageId"
+        android:gravity="left|center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/eventNameTextWithImgId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/circle_light_gray"
+            android:gravity="left|center_horizontal"
+            android:text="@string/create_event_name"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/layoutEventNameBtnId"
+        android:background="#bbbbbb"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/layoutPhotoVideoBtnId"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_below="@+id/line1"
+        android:gravity="left|center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/photoVideoTextWithImgId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/circle_light_gray"
+            android:gravity="left|center_horizontal"
+            android:text="@string/create_event_photo_video"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/layoutPhotoVideoBtnId"
+        android:background="#bbbbbb"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/layoutLocationBtnId"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_below="@+id/line2"
+        android:gravity="left|center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/locationTextWithImgId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/circle_light_gray"
+            android:gravity="left|center_horizontal"
+            android:text="@string/create_event_location"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/layoutLocationBtnId"
+        android:background="#bbbbbb"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/layoutTimeBtnId"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_below="@+id/line3"
+        android:gravity="left|center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/timeTextWithImgId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/circle_light_gray"
+            android:gravity="left|center_horizontal"
+            android:text="@string/create_event_time"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/layoutTimeBtnId"
+        android:background="#bbbbbb"
+        android:orientation="horizontal" />
+</RelativeLayout>

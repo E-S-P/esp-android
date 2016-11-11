@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_create_event_name"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    tools:context="com.esp.ui.CreateEventName">
+
+    <LinearLayout
+        android:id="@+id/layoutEventNameTextId"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/eventNameTextId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/field_border"
+            android:ems="10"
+            android:hint="Event Name"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/saveEventTextBtnId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutEventNameTextId"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/btn_border"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Save"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+</RelativeLayout>

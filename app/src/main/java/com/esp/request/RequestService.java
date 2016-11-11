@@ -7,9 +7,9 @@ import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 
 import com.esp.constants.G;
+import com.esp.model.ProfileData;
 import com.esp.util.StringUtil;
 import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.TextHttpResponseHandler;
 
@@ -61,7 +61,7 @@ public class RequestService {
         );
     }
 
-    public static void makePost(final Context mContext, final ProgressDialog prgDialog, String url, JSONObject jsonObject,
+    public static void makePost(final boolean isLogin, final Context mContext, final ProgressDialog prgDialog, String url, JSONObject jsonObject,
                                 final Handler mHandler) {
         // Show Progress Dialog
         prgDialog.show();
@@ -77,6 +77,10 @@ public class RequestService {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject obj) {
                 try {
+
+                    if(isLogin){
+                        setProfileData(obj);
+                    }
                     boolean error = obj.getBoolean("error");
                     int code = obj.getInt("code");
                     String message = "";
@@ -144,6 +148,29 @@ public class RequestService {
                 })
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
+    }
+
+
+    private static void setProfileData(JSONObject jsonObject){
+        ProfileData profileData = new ProfileData();
+        try {
+            profileData.setUserId(jsonObject.getString("userid"));
+            profileData.setFirstName(jsonObject.getString("firstName"));
+            profileData.setLastName(jsonObject.getString("lastName"));
+            profileData.setUserName(jsonObject.getString("username"));
+            profileData.setEmailAddress(jsonObject.getString("emailAddr"));
+            profileData.setDob(jsonObject.getString("dob"));
+            profileData.setGender(jsonObject.getString("gender"));
+            profileData.setPhoneNumber(jsonObject.getString("phone"));
+            profileData.setCity(jsonObject.getString("city"));
+            profileData.setState(jsonObject.getString("state"));
+            profileData.setZipCode(jsonObject.getString("zipcode"));
+            profileData.setCountry(jsonObject.getString("country"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        G.PROFILE_DATA = profileData;
     }
 
 }

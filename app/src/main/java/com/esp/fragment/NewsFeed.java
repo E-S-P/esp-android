@@ -18,13 +18,13 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Home extends BaseFragment {
+public class NewsFeed extends BaseFragment {
 
     private List<Event> events;
     private LinearLayout eventLayout;
 
 
-    public Home() {
+    public NewsFeed() {
         // Required empty public constructor
     }
 
@@ -33,7 +33,7 @@ public class Home extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_news_feed, container, false);
         eventLayout = (LinearLayout) view.findViewById(R.id.eventLayoutId);
 
         loadDummyEvents();
@@ -64,16 +64,16 @@ public class Home extends BaseFragment {
 
         for (int i = 0; i < events.size(); i++){
 
-            View eventView = mActivity.getLayoutInflater().inflate(R.layout.event_item, null);
+            View eventView = mActivity.getLayoutInflater().inflate(R.layout.item_event, null);
 
 
-            TextView title = (TextView) eventView.findViewById(R.id.eventTitleId);
-            title.setText(events.get(i).getTitle());
+//            TextView title = (TextView) eventView.findViewById(R.id.eventTitleId);
+//            title.setText(events.get(i).getTitle());
 
 //            TextView msg = (TextView) eventView.findViewById(R.id.eventMsgId);
 //            msg.setText(events.get(i).getMessage());
 
-            LinearLayout layoutComment = (LinearLayout) eventView.findViewById(R.id.layoutCommentId);
+//            LinearLayout layoutComment = (LinearLayout) eventView.findViewById(R.id.layoutCommentId);
 
             eventLayout.addView(eventView);
         }

@@ -1,13 +1,11 @@
 package com.esp.ui;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
-import android.telephony.TelephonyManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,9 +15,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.countrypicker.CountryPicker;
+import com.countrypicker.CountryPickerListener;
 import com.esp.constants.G;
 import com.esp.fragment.DatePickerFragment;
-import com.esp.model.CountryDetails;
 import com.esp.request.RequestService;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
@@ -32,14 +31,15 @@ import java.util.StringTokenizer;
 public class Registration extends AppCompatActivity {
 
     private EditText fNameField, lNameField, userNameField, emailField, passwordField, confirmPasswordField;
-    private TextView dobTitle, datePicker, addressTitle;
+    private TextView countryCode, dobTitle, datePicker, countryField;
     private RadioGroup genderRadioGroup;
     private RadioButton male, female;
-    private SearchableSpinner countryCodeSpinner;
-    private EditText mobileNumberField, cityField, stateField, zipField, countryField;
+    //    private SearchableSpinner countryCodeSpinner;
+    private EditText mobileNumberField, cityField, stateField, zipField;
     private ProgressDialog progressDialog;
     private DialogFragment dateFragment;
     private boolean isFirstLoad = false;
+    private CountryPicker pickerForCountry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,60 +56,89 @@ public class Registration extends AppCompatActivity {
         passwordField = (EditText) findViewById(R.id.passwordField);
         confirmPasswordField = (EditText) findViewById(R.id.confirmPasswordField);
 
+        final CountryPicker pickerForCode = CountryPicker.newInstance("Select Country");
+        pickerForCountry = CountryPicker.newInstance("Select Country");
+
+        countryCode = (TextView) findViewById(R.id.countryCodeId);
+        countryCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pickerForCode.show(getSupportFragmentManager(), "COUNTRY_PICKER");
+            }
+        });
+
+        pickerForCode.setListener(new CountryPickerListener() {
+
+            @Override
+            public void onSelectCountry(String name, String code) {
+                // Invoke your function here
+                countryCode.setText("+"+getNumCode(code));
+                pickerForCode.dismiss();
+            }
+        });
+
+        pickerForCountry.setListener(new CountryPickerListener() {
+
+            @Override
+            public void onSelectCountry(String name, String code) {
+                // Invoke your function here
+                countryField.setText(name);
+                pickerForCountry.dismiss();
+            }
+        });
         dobTitle = (TextView) findViewById(R.id.dobTitleId);
         datePicker = (TextView) findViewById(R.id.datePicker);
 
         genderRadioGroup = (RadioGroup) findViewById(R.id.myRadioGroupId);
 
 
-        final String[] countryCode = getResources().getStringArray(R.array.CountryCodes);
+//        final String[] countryCode = getResources().getStringArray(R.array.CountryCodes);
+//
+//        countryCodeSpinner = (SearchableSpinner) findViewById(R.id.countryCodeSpinner);
+//        countryCodeSpinner.setTitle("Select Country");
+//        countryCodeSpinner.setPositiveButton("OK");
+//        countryCodeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                if (isFirstLoad) {
+//                    isFirstLoad = false;
+//                    for (int j = 0; j < countryCode.length; j++) {
+//                        StringTokenizer st = new StringTokenizer(countryCode[j], ",");
+//                        while (st.hasMoreTokens()) {
+//                            String a = st.nextToken();
+//                            if (a.toUpperCase().trim().equals(G.CODE.toUpperCase().trim())) {
+//                                countryCodeSpinner.setSelection(j);
+//                            }
+//                            st.nextToken();
+//                        }
+//                    }
+//                }
+//                String countryDetails = countryCode[i].toString();
+//                ((TextView) view).setText("+"+countryDetails.substring(3, countryDetails.length()));
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
 
-        countryCodeSpinner = (SearchableSpinner) findViewById(R.id.countryCodeSpinner);
-        countryCodeSpinner.setTitle("Select Country");
-        countryCodeSpinner.setPositiveButton("OK");
-        countryCodeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (isFirstLoad) {
-                    isFirstLoad = false;
-                    for (int j = 0; j < countryCode.length; j++) {
-                        StringTokenizer st = new StringTokenizer(countryCode[j], ",");
-                        while (st.hasMoreTokens()) {
-                            String a = st.nextToken();
-                            if (a.toUpperCase().trim().equals(G.CODE.toUpperCase().trim())) {
-                                countryCodeSpinner.setSelection(j);
-                            }
-                            st.nextToken();
-                        }
-                    }
-                }
-                String countryDetails = countryCode[i].toString();
-                ((TextView) view).setText("+"+countryDetails.substring(3, countryDetails.length()));
 
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, countryCode);
-
-        // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
+//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_spinner_item, countryCode);
+//
+//        // Drop down layout style - list view with radio button
+//        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
         // attaching data adapter to spinner
-        countryCodeSpinner.setAdapter(dataAdapter);
+//        countryCodeSpinner.setAdapter(dataAdapter);
         mobileNumberField = (EditText) findViewById(R.id.mobileNumberField);
-        addressTitle = (TextView) findViewById(R.id.addressTitle);
 
         cityField = (EditText) findViewById(R.id.cityField);
         stateField = (EditText) findViewById(R.id.stateField);
         zipField = (EditText) findViewById(R.id.zipField);
-        countryField = (EditText) findViewById(R.id.countryField);
+        countryField = (TextView) findViewById(R.id.countryField);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait, Registering...");
@@ -117,6 +146,25 @@ public class Registration extends AppCompatActivity {
         progressDialog.setCancelable(false);
 
 
+    }
+
+
+    private int getNumCode(String str) {
+        final String[] countryCode = getResources().getStringArray(R.array.CountryCodes);
+        for (String code : countryCode) {
+            StringTokenizer st = new StringTokenizer(code, ",");
+            String countryCodeVal = "";
+            String numberCodeVal = "";
+            while (st.hasMoreTokens()) {
+                countryCodeVal = st.nextToken();
+                numberCodeVal = st.nextToken();
+            }
+
+            if (countryCodeVal.toUpperCase().equals(str.toUpperCase())) {
+                return Integer.valueOf(numberCodeVal);
+            }
+        }
+        return 0;
     }
 
 
@@ -145,7 +193,7 @@ public class Registration extends AppCompatActivity {
                 int selectedId = genderRadioGroup.getCheckedRadioButtonId();
                 RadioButton radioButton = (RadioButton) findViewById(selectedId);
                 String gender = radioButton.getText().toString();
-//                String phone = mobileCode.getText().toString() + mobileNumberField.getText().toString();
+                String phone = countryCode.getText().toString() + mobileNumberField.getText().toString();
                 String city = cityField.getText().toString();
                 String state = stateField.getText().toString();
                 String zipCode = zipField.getText().toString();
@@ -162,7 +210,7 @@ public class Registration extends AppCompatActivity {
                     obj.put("confirmPassword", confirmPassword);
                     obj.put("dOb", dob);
                     obj.put("gender", gender);
-                    obj.put("phone", countryCodeSpinner.getSelectedItem().toString());
+                    obj.put("phone", phone);
                     obj.put("address", "NA");
                     obj.put("city", city);
                     obj.put("state", state);
@@ -171,11 +219,14 @@ public class Registration extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                RequestService.makePost(this, progressDialog, G.BASE_URL + G.REGISTRATION_URL, obj, mHandler);
+                RequestService.makePost(false, this, progressDialog, G.BASE_URL + G.REGISTRATION_URL, obj, mHandler);
                 break;
             case R.id.datePicker:
                 dateFragment = new DatePickerFragment();
                 dateFragment.show(getSupportFragmentManager(), "datePicker");
+                break;
+            case R.id.countryField:
+                pickerForCountry.show(getSupportFragmentManager(), "COUNTRY_PICKER");
                 break;
             default:
                 break;

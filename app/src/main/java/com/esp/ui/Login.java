@@ -28,13 +28,15 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         loginField = (EditText) findViewById(R.id.loginField);
+        loginField.setText("eduardo.delito@gmail.com");
         passwordField = (EditText) findViewById(R.id.passwordField);
+        passwordField.setText("123456");
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait, Logging in...");
         progressDialog.setIndeterminate(false);
         progressDialog.setCancelable(false);
 
-        RequestService.getCountryCode(this, progressDialog, "http://ip-api.com/json");
+//        RequestService.getCountryCode(this, progressDialog, "http://ip-api.com/json");
     }
 
     public void onClick(View v) {
@@ -52,13 +54,15 @@ public class Login extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    RequestService.makePost(this, progressDialog, G.BASE_URL + G.LOGIN_URL, jsonObject, mHandler);
+                    RequestService.makePost(true, this, progressDialog, G.BASE_URL + G.LOGIN_URL, jsonObject, mHandler);
                 } else {
                     Toast.makeText(this, "Username and Password cannot be empty!", Toast.LENGTH_LONG).show();
                 }
 
                 break;
             case R.id.forgotPasswordBtn:
+                Intent forgotIntent = new Intent(Login.this, Forgot.class);
+                startActivity(forgotIntent);
                 break;
             case R.id.signUpBtn:
                 Intent regIntent = new Intent(Login.this, Registration.class);

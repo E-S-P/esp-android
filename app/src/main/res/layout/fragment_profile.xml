@@ -1,13 +1,169 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fbfbfb"
     tools:context="com.esp.fragment.Profile">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/profile_blank_fragment" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
-</FrameLayout>
+        <LinearLayout
+            android:id="@+id/profileLayoutId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="80dp">
+
+                <ImageView
+                    android:id="@+id/bgPicProfileId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:contentDescription=""
+                    android:src="@drawable/sample"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/profilePicId"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="200dp"
+                    android:background="@color/white"
+                    android:padding="1dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/pic"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/profileNameId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profilePicId"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/test_testing"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/workProfileId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileNameId"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/works_at_international_company"
+                    android:textColor="@color/dark_gray" />
+
+                <TextView
+                    android:id="@+id/wentSchoolId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/workProfileId"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/went_to_university_of_the_philippines"
+                    android:textColor="@color/dark_gray" />
+
+                <LinearLayout
+                    android:id="@+id/layoutInRelationshipId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/wentSchoolId"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/inRelationshipId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/in_a_relationship_with"
+                        android:textColor="@color/dark_gray" />
+
+                    <TextView
+                        android:id="@+id/raltionshipNameId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:text="@string/maria_santisima"
+                        android:textColor="@color/dark_gray"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layoutInRelationshipId"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:drawablePadding="5dp"
+                        android:drawableTop="@drawable/circle_light_gray"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="@string/my_events"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:drawablePadding="5dp"
+                        android:drawableTop="@drawable/circle_light_gray"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="Send Events"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText,SmallSp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:drawablePadding="5dp"
+                        android:drawableTop="@drawable/circle_light_gray"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="@string/my_info"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:drawablePadding="5dp"
+                        android:drawableTop="@drawable/circle_light_gray"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="@string/friends"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        tools:ignore="SmallSp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

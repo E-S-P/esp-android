@@ -4,51 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.esp.ui.Login"
-    android:background="@color/colorPrimary">
+    tools:context="com.esp.ui.Login">
 
-    <EditText
-        android:id="@+id/loginField"
+
+    <LinearLayout
+        android:id="@+id/layoutUser"
         android:layout_width="match_parent"
         android:layout_height="@dimen/field_height"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
-        android:ems="10"
-        android:hint="@string/login_hint"
-        android:inputType="textPersonName"
-        android:background="@android:color/white"
-        android:paddingLeft="10dp"/>
+        android:layout_below="@+id/everySinglePictureTitle"
+        android:layout_marginTop="40dp"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/passwordField"
+        <EditText
+            android:id="@+id/loginField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/field_border"
+            android:ems="10"
+            android:hint="@string/login_hint"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutPassword"
         android:layout_width="match_parent"
         android:layout_height="@dimen/field_height"
-        android:layout_below="@+id/loginField"
+        android:layout_below="@+id/layoutUser"
         android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:hint="@string/password_hint"
-        android:inputType="textPassword"
-        android:background="@android:color/white"
-        android:layout_marginTop="20dp"
-        android:paddingLeft="10dp"/>
+        android:layout_marginTop="30dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/passwordField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/field_border"
+            android:ems="10"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp" />
+    </LinearLayout>
 
 
     <TextView
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="@dimen/field_height"
-        android:layout_below="@+id/passwordField"
+        android:layout_below="@+id/layoutPassword"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_border"
+        android:gravity="center_horizontal|center_vertical"
         android:onClick="onClick"
         android:text="@string/login"
-        android:gravity="center_horizontal|center_vertical"
-        android:background="@color/white"/>
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/forgotPasswordBtn"
@@ -56,30 +73,58 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/loginBtn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:onClick="onClick"
-        android:text="Forgot Password"
+        android:text="Forgot Password?"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/yellow" />
 
-    <TextView
-        android:id="@+id/signUpBtn"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/field_height"
-        android:layout_below="@+id/forgotPasswordBtn"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:onClick="onClick"
-        android:text="@string/register"
-        android:gravity="center_horizontal|center_vertical"
-        android:background="@color/white"/>
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/forgotPasswordBtn"
+        android:gravity="center_horizontal|center_vertical">
+
+        <TextView
+            android:id="@+id/signUpTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/field_height"
+            android:text="@string/dont_have_acc"
+            android:textColor="@color/white" />
+
+
+        <TextView
+            android:id="@+id/signUpBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/field_height"
+            android:onClick="onClick"
+            android:text="@string/signUp"
+            android:textColor="@color/yellow"
+            android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_top_bar_logo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:id="@+id/imageView2" />
+        android:src="@drawable/logo_esp" />
+
+    <TextView
+        android:id="@+id/everySinglePictureTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="Every Single Picture"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
 </RelativeLayout>
